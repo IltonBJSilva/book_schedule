@@ -1,0 +1,72 @@
+    <div class="col-sm-3 sidenav">
+      <h4>Libook</h4>
+
+      <ul class="nav nav-pills nav-stacked">
+        <li class="active" data-toggle="modal" data-target="#ModalCenter"><a href="#section1">Adicionar</a></li>
+        <li><a href="#section2">Acessar Documentação</a></li>
+        <li><a href="#section3">Quem fez?</a></li>
+
+      </ul><br>
+		{% include "_button-sair.html" %}
+
+	
+<!--	Search 	-->
+<!--      <div class="input-group">-->
+<!--        <input type="text" class="form-control" placeholder="Search Blog..">-->
+<!--        <span class="input-group-btn">-->
+<!--          <button class="btn btn-default" type="button">-->
+<!--            <span class="glyphicon glyphicon-search"></span>-->
+<!--          </button>-->
+<!--        </span>-->
+<!--      </div>-->
+		
+    </div>
+	
+	
+	<!-- Modal -->
+<div class="modal fade" id="ModalCenter" tabindex="-1" role="dialog" aria-labelledby="ModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="exampleModalLongTitle">Adicionar um novo Livro</h3>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+		  
+        <form action="#" method="post"> {% csrf_token %}
+			<!-- Element form -->
+			<table style="width: 100%;">
+				<tr>
+					<td>
+						<label for="titulo">Titulo do Livro:</label><br>
+						<input id="titulo" type="text" name="titulo" value="{{ current_name }}"><br>
+					
+						<label for="generos">Genero do Livro:</label><br>
+						<input id="generos" type="text" name="generos" value="{{ current_name }}"><br><br>
+					</td><br>
+					<td>
+						<label for="input_5">Resenha:</label><br>
+						<textarea id="input_5" class="form-textarea validate[required] form-validation-error" name="q5_message" cols="31" rows="13" data-component="textarea" required="" aria-labelledby="label_5"></textarea>
+						<br>
+					</td>
+				</tr>
+			</table>
+			
+			<!--Fechamentos-->
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+				<button type="submit" class="btn btn-primary" value="OK">Adicionar</button>
+			</div>
+			<!--End close-->
+			
+		</form>
+		  
+      </div>
+	
+		
+		
+    </div>
+  </div>
+</div>

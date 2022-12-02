@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'widget_tweaks',
+    'plataforma',
+    'permissoes',
 ]
 
 SITE_ID = 1
@@ -139,5 +141,5 @@ STATICFILES_DIRS = [
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-# LOGIN_REDIRECT_URL = '/firetools/home'
-# LOGOUT_REDIRECT_URL = '/accounts/login'
+LOGIN_REDIRECT_URL = '/libook/home/'
+LOGOUT_REDIRECT_URL = '/accounts/login'
