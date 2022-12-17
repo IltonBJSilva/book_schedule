@@ -34,25 +34,19 @@
         </button>
       </div>
       <div class="modal-body">
-		  
-        <form action="#" method="post"> {% csrf_token %}
-			<!-- Element form -->
-			<table style="width: 100%;">
-				<tr>
-					<td>
-						<label for="titulo">Titulo do Livro:</label><br>
-						<input id="titulo" type="text" name="titulo" value="{{ current_name }}"><br>
-					
-						<label for="generos">Genero do Livro:</label><br>
-						<input id="generos" type="text" name="generos" value="{{ current_name }}"><br><br>
-					</td><br>
-					<td>
-						<label for="input_5">Resenha:</label><br>
-						<textarea id="input_5" class="form-textarea validate[required] form-validation-error" name="q5_message" cols="31" rows="13" data-component="textarea" required="" aria-labelledby="label_5"></textarea>
-						<br>
-					</td>
-				</tr>
-			</table>
+        <form  action="{% url 'salvar' %}" method="POST"> {% csrf_token %}
+			
+          <div class="form-group" align="center">
+			  	<label for="titulo">Titulo do Livro:</label><br>
+				<input id="titulo" type="text" name="titulo" value="{{ current_name }}"><br><br>
+				
+			  	<label for="check">Status de Leitura:</label><br>
+				<input id="check" type="text" name="check" value="{{ current_name }}"><br><br>
+			 
+				<label for="resenha">Resenha:</label><br>
+				<textarea id="resenha" class="form-textarea validate[required] form-validation-error" name="resenha" value="{{ current_name }}" cols="31" rows="13" data-component="textarea" required="" aria-labelledby="label_5"></textarea><br>
+          </div>
+			
 			
 			<!--Fechamentos-->
 			<div class="modal-footer">
@@ -62,11 +56,7 @@
 			<!--End close-->
 			
 		</form>
-		  
       </div>
-	
-		
-		
     </div>
   </div>
 </div>

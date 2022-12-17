@@ -44,7 +44,6 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'widget_tweaks',
     'plataforma',
-    'permissoes',
 ]
 
 SITE_ID = 1

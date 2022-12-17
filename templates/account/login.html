@@ -4,11 +4,11 @@
 {% load account socialaccount %}
 
 {% block head_title %}
-LiBook
+Libook
 {% endblock %}
 
 {% block whitebox %}
-<h1 class="mb-5 text-3xl text-center">Sign in</h1>
+<h1 class="mb-5 text-3xl text-center">Libook</h1>
 <form method="POST" action="{% url 'account_login' %}" class="flex flex-col items-center grow-0">
   {% csrf_token %}
 
@@ -33,12 +33,12 @@ LiBook
   {% endfor %}
 
 
-  {% include "account/_button.html" with text="Login" %}
+  {% include "account/_button.html" with text="Logar" %}
 
   <div class="flex justify-center mt-6 text-xs">
-    <a class="text-blue-400 hover:text-blue-500" href="{% url 'account_reset_password' %}">Forgot Password</a>
+    <a class="text-blue-400 hover:text-blue-500" href="{% url 'account_reset_password' %}">Esqueci a senha</a>
     <span class="mx-2 text-gray-300">/</span>
-    <a class="text-blue-400 hover:text-blue-500" href="{% url 'account_signup' %}">Sign Up</a>
+    <a class="text-blue-400 hover:text-blue-500" href="{% url 'account_signup' %}">Inscrever-se</a>
   </div>
 
   {% if redirect_field_value %}
@@ -53,7 +53,7 @@ LiBook
   <hr class="w-full">
 </div>
 
-<p class="text-xs text-center text-gray-500">Sign in with a third party</p>
+<p class="text-xs text-center text-gray-500">Entrar com um terceiro</p>
 
 {% include "socialaccount/snippets/provider_list.html" with process="login" %}
 {% endif %}

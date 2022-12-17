@@ -20,4 +20,6 @@ from django.views.generic import RedirectView
 from plataforma import views
 
 urlpatterns = [
+	path('home/', views.logar, name="home"),
+	path('adicionar/', views.salvar,name='salvar')
 ]

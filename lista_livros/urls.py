@@ -21,5 +21,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', RedirectView.as_view(url='/accounts/login/')),
     path('accounts/', include('allauth.urls')),
-    path('libook/', include('permissoes.urls')),
+    path('libook/', include('plataforma.urls')),
+
+    # path('', include('plataforma.urls')),
+
 ]
