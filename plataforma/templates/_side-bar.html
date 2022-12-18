@@ -1,5 +1,5 @@
     <div class="col-sm-3 sidenav">
-      <h4>Libook</h4>
+      <h4 href="/libook/home/">Libook</h4>
 
       <ul class="nav nav-pills nav-stacked">
         <li class="active" data-toggle="modal" data-target="#ModalCenter"><a href="#section1">Adicionar</a></li>
@@ -7,6 +7,7 @@
         <li><a href="#section3">Quem fez?</a></li>
 
       </ul><br>
+		
 		{% include "_button-sair.html" %}
 
 	
@@ -39,9 +40,6 @@
           <div class="form-group" align="center">
 			  	<label for="titulo">Titulo do Livro:</label><br>
 				<input id="titulo" type="text" name="titulo" value="{{ current_name }}"><br><br>
-				
-			  	<label for="check">Status de Leitura:</label><br>
-				<input id="check" type="text" name="check" value="{{ current_name }}"><br><br>
 			 
 				<label for="resenha">Resenha:</label><br>
 				<textarea id="resenha" class="form-textarea validate[required] form-validation-error" name="resenha" value="{{ current_name }}" cols="31" rows="13" data-component="textarea" required="" aria-labelledby="label_5"></textarea><br>

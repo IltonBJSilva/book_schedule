@@ -5,21 +5,23 @@
 	{% block whitebox %}
 
 
-		<ul>
-			{% for livro in titulo_livro %}
-
-					<li>
-						<section style="padding: 20px; box-shadow: inset 0 -3em 3em rgba(0, 0, 0, 0.1), 0 0 0 2px rgb(255, 255, 255), 0.3em 0.3em 1em rgba(0, 0, 0, 0.3);">
-						<h4><small>Adicionado Recentemente</small></h4>
-						<hr>
-						<h2>{{ livro.nome }}</h2>
-						<h5><span class="glyphicon glyphicon-time"></span> Postado por Ilton, Set 27, 2022.</h5>
-						<p>{{ livro.resenha }}</p>
-						<br><br>
-						</section><br>
-					</li>
-			{% endfor %}
-    	</ul>
+<ul>
+	{% for livro in livros %}
+			<li>
+				<section style="padding: 20px; box-shadow: inset 0 -3em 3em rgba(0, 0, 0, 0.1), 0 0 0 2px rgb(255, 255, 255), 0.3em 0.3em 1em rgba(0, 0, 0, 0.3);">
+				<h4><small>Adicionado Recentemente</small></h4>
+				<hr>
+				<h2>{{ livro.nome }}</h2>
+				<h5><span class="glyphicon glyphicon-time"></span> Postado por Ilton, Set 27, 2022.</h5>
+				<p>{{ livro.resenha }}</p>
+					<a type="button" class="btn btn-warning" href="{% url 'editar' livro.id %}">Editar</a>
+					<a type="button" class="btn btn-danger" href="{% url  'deletar' livro.id %}">Deletar</a>
+					
+				<br><br>
+				</section><br>
+			</li>
+	{% endfor %}
+</ul>
 
 
 <!--    <div class="col-sm-9">-->
