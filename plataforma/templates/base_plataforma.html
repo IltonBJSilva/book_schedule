@@ -3,22 +3,34 @@
 <head>
 	{% include "head_plataform.html" %}
 </head>
-<body>
+<body ng-app="demoModule" ng-controller="demoController">
 
 
 <div class="container-fluid">
-  <div class="row content" style="height: 100%;">
-	{% include "_side-bar.html" %}
-	  
-	  {% block content %}
-	  
-	  {% endblock %}
-  </div>
+	<div class="row content">
+		{% include "_side-bar.html" %}
+	</div>
+	
+	
+	<div class="alert alert-success" style="display: none;">
+		<strong>Successo!</strong> Livro adicionado.
+	</div>
+	
+	<div class="alert alert-info" style="display: none;">
+		<strong>Successo!</strong> Livro Editado.
+	</div>
+	
+	<div class="alert alert-danger" style="display: none;">
+		<strong>Successo!</strong> Livro Excluido.
+	</div>
+	
+	
+	<div class="w3-container">
+		{% block content %}
+		{% endblock %}
+	
+	</div>
 </div>
 
-
-<footer class="container-fluid">
-  	{% include "footer.html" %}
-</footer>
 </body>
 </html>

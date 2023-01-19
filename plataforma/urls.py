@@ -21,9 +21,8 @@ from plataforma import views
 
 urlpatterns = [
 	path('home/', views.logar, name='logar'),
-	path('adicionar/', views.salvar,name='salvar'),
+	path('salvar/', views.salvar,name='salvar'),
 	path('editar/<int:id>', views.editar, name='editar'),
 	path('update/<int:id>', views.update, name='update'),
-	path('deletar/<int:id>', views.deletar, name='deletar')
-
+	path('deletar/<int:id>', views.deletar, name='deletar'),
 ]

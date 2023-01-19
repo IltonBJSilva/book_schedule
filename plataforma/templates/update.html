@@ -2,25 +2,26 @@
 {% load static %}
 {% block 'body' %}
 {% block content %}
-	{% block whitebox %}
+{% block whitebox %}
 
 
-		
-		<!--Imprimir variavel -->
-		
-		<form action="{% url 'update' livros.id%}" method="POST">
-			{% csrf_token %}
-			<div class="form-group" align="center">
-				<label for="titulo">Titulo do Livro:</label><br>
-				<input id="titulo" type="text" name="titulo" value="{{ livros.nome }}"><br><br>
-				<label for="resenha">Resenha:</label><br>
-				<textarea id="resenha" class="form-textarea validate[required] form-validation-error" name="resenha" cols="31" rows="13" data-component="textarea" required="" aria-labelledby="label_5" value="{{ livros.resenha }}" ></textarea><br>
-				<button type="submit" class="btn btn-success">Atualizar</button>
-
-			</div>
-		</form>
+<!--Imprimir variavel -->
 
 
-	{% endblock %}
+<form action="{% url 'update' livros.id%}" method="POST">
+	{% csrf_token %}
+	<div class="form-group" align="center">
+		<label for="titulo">Titulo do Livro:</label><br>
+		<input id="titulo" type="text" name="titulo" value="{{ livros.nome }}"><br><br>
+		<label for="resenha">Resenha:</label><br>
+		<textarea id="resenha" class="form-textarea validate[required] form-validation-error" name="resenha" cols="31"
+				  rows="13" data-component="textarea" required="" aria-labelledby="label_5" value="">{{ livros.resenha }}</textarea><br>
+		<button type="submit" class="btn btn-success">Atualizar</button>
+	
+	</div>
+</form>
+
+
+{% endblock %}
 {% endblock %}
 {% endblock %}

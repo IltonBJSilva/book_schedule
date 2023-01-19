@@ -79,6 +79,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'lista_livros.wsgi.application'
 
+AUTH_USER_MODEL = 'auth.User'
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
@@ -89,6 +90,11 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+# add this to line it works
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+ACCOUNT_EMAIL_VERIFICATION = "none"
 
 
 # Password validation
