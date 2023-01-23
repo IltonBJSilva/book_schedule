@@ -1,10 +1,5 @@
 # Crud de Livros - Libook
 
-Uma breve descrição sobre o que esse projeto faz e para quem ele é
-
-
-## Proposta
-
 Projeto criado a fim de praticar habilidades em 
 django e bibliotecas a parte como allauth para 
 desenvolver um site completo com login e cadastramento de
