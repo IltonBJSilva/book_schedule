@@ -15,10 +15,22 @@
 		<li><a href="https://github.com/IltonBJSilva/book_schedule" target="_blank">Acessar o projeto</a></li>
 		<li><a href="https://iltonbjsilva.github.io/" target="_blank">Quem fez?</a></li>
 		<div class="search-container">
-			<!--			<form action="#" style="padding: 4%;">-->
-			<!--			  <input type="text" placeholder="Procurar.." name="search" ng-model="searchvalue.livros" autocomplete="on">-->
-			<!--			  <button type="submit"><i class="fa fa-search"></i>Pesquisar</button>-->
-			<!--			</form>-->
+			<form action="{% url 'listar_livro' %}" method="GET" style="padding: 4%;">
+<!--				<input type="text" placeholder="Procurar.." name="livro"-->
+<!--					   value="{% if vtitulo %}{{ vtitulo }}{% endif %}" autocomplete="on">-->
+				
+				<div class="col-md-6">
+					<input type="text" placeholder="Procurar..."
+						   value="{% if vtitulo %}{{ vtitulo }}{% endif %}" name="livro"
+						   class="form-control">
+				</div>
+				
+				<div class="col-md-2">
+					<input type="submit" class="btn-custom-secondary" value="FILTRAR">
+				</div>
+			
+			
+			</form>
 		</div>
 		
 		<button class="w3-bar-item w3-button w3-large" onclick="w3_close()">Close &times;</button>

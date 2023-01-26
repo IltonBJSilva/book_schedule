@@ -20,6 +20,7 @@ from django.views.generic import RedirectView
 from plataforma import views
 
 urlpatterns = [
+	path('', views.listar_livro, name="listar_livro"),
 	path('home/', views.logar, name='logar'),
 	path('salvar/', views.salvar,name='salvar'),
 	path('editar/<int:id>', views.editar, name='editar'),
