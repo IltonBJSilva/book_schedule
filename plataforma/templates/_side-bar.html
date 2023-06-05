@@ -1,80 +1,117 @@
 {% load static %}
 
-<script>
 
-
-</script>
 
 <div class="w3-sidebar w3-bar-block w3-card w3-animate-left" style="display:none;" id="mySidebar">
-	<h3 class="w3-bar-item">Libook</h3>
-	<br>
-	<p style="padding: 18px">Bem vindo - {{user}}</p>
-	
-	<ul class="nav nav-pills nav-stacked">
-		<li class="active" data-toggle="modal" data-target="#ModalCenter"><a href="#section1">Adicionar</a></li>
-		<li><a href="https://github.com/IltonBJSilva/book_schedule" target="_blank">Acessar o projeto</a></li>
-		<li><a href="https://iltonbjsilva.github.io/" target="_blank">Quem fez?</a></li>
-		<div class="search-container">
-			<form action="{% url 'listar_livro' %}" method="GET" style="padding: 4%;">
-<!--				<input type="text" placeholder="Procurar.." name="livro"-->
-<!--					   value="{% if vtitulo %}{{ vtitulo }}{% endif %}" autocomplete="on">-->
-				
-				<div class="col-md-6">
-					<input type="text" placeholder="Procurar..."
-						   value="{% if vtitulo %}{{ vtitulo }}{% endif %}" name="livro"
-						   class="form-control">
-				</div>
-				
-				<div class="col-md-2">
-					<input type="submit" class="btn-custom-secondary" value="FILTRAR">
-				</div>
+  <h3 class="w3-bar-item" style="font-size: 24px; font-weight: bold;">Libook</h3>
+
+  <div style="padding: 18px;">
+    <h2>Bem-vindo, {{ user }}!</h2>
+    <p>Esperamos que você tenha uma ótima experiência aqui.</p>
+  </div>
+
+  <div class="search-container">
+		<input type="text" placeholder="Procurar..."
+			value="{% if vtitulo %}{{ vtitulo }}{% endif %}" name="livro"
+			class="form-control" onkeyup="filterSections(this.value)">
 			
-			
-			</form>
-		</div>
-		
-		<button class="w3-bar-item w3-button w3-large" onclick="w3_close()">Close &times;</button>
-	</ul>
-	<br>
-	{% include "_button-sair.html" %}
+	</div>
+
+
+
+  <ul class="nav nav-pills nav-stacked" id="sidebar-ul">
+    <li class="" data-toggle="modal" data-target="#ModalCenter">
+      <a href="#section1" class="btn">Adicionar</a>
+    </li>
+
+    <li>
+      <a href="https://github.com/IltonBJSilva/book_schedule" target="_blank" class="btn btn-secondary">Acessar o projeto</a>
+    </li>
+
+    <li>
+      <a href="https://iltonbjsilva.github.io/" target="_blank" class="btn">Quem fez?</a>
+    </li>
+
+    <li>
+      <a href="/accounts/logout" target="_blank" class="btn">Deslogar-se</a>
+    </li>
+
+    <!--
+    <li>
+      {% include "_button-sair.html" %}
+
+    </li>
+-->
+
+  </ul>
+  
+
+  <br>
+
+
 </div>
 
+<!-- Modal 
+<div class="modal fade" id="ModalCenter" tabindex="-1" role="dialog" aria-labelledby="ModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="exampleModalLongTitle">Adicionar um novo Livro</h3>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="{% url 'salvar' %}" method="POST"> {% csrf_token %}
+          <div class="form-group" align="center">
+            <label for="titulo">Titulo do Livro:</label><br>
+            <input id="titulo" type="text" name="titulo" value="{{ current_name }}"><br><br>
+
+            <label for="resenha">Resenha:</label><br>
+            <textarea id="resenha" class="form-textarea validate[required] form-validation-error"
+              name="resenha" value="{{ current_name }}" cols="31" rows="13" data-component="textarea" required=""
+              aria-labelledby="label_5"></textarea><br>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+            <button type="submit" class="btn btn-primary" value="OK" onsubmit="myFunction()">Adicionar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+-->
 
 <!-- Modal -->
-<div class="modal fade" id="ModalCenter" tabindex="-1" role="dialog" aria-labelledby="ModalCenterTitle"
-	 aria-hidden="true">
-	<div class="modal-dialog modal-dialog-centered" role="document">
-		<div class="modal-content">
-			<div class="modal-header">
-				<h3 class="modal-title" id="exampleModalLongTitle">Adicionar um novo Livro</h3>
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				</button>
-			</div>
-			<div class="modal-body">
-				<form action="{% url 'salvar' %}" method="POST"> {% csrf_token %}
-					
-					<div class="form-group" align="center">
-						<label for="titulo">Titulo do Livro:</label><br>
-						<input id="titulo" type="text" name="titulo" value="{{ current_name }}"><br><br>
-						
-						<label for="resenha">Resenha:</label><br>
-						<textarea id="resenha" class="form-textarea validate[required] form-validation-error"
-								  name="resenha" value="{{ current_name }}" cols="31" rows="13"
-								  data-component="textarea" required="" aria-labelledby="label_5"></textarea><br>
-					</div>
-					
-					
-					<!--Fechamentos-->
-					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-						<button type="submit" class="btn btn-primary" value="OK" onsubmit="myFunction()">Adicionar
-						</button>
-					</div>
-					<!--End close-->
-				
-				</form>
-			</div>
-		</div>
-	</div>
+<div class="modal fade" id="ModalCenter" tabindex="-1" role="dialog" aria-labelledby="ModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="exampleModalLongTitle">Adicionar um novo Livro</h3>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="{% url 'salvar' %}" method="POST" class="needs-validation" novalidate>
+          {% csrf_token %}
+          <div class="form-group">
+            <label for="titulo">Título do Livro:</label>
+            <input id="titulo" type="text" name="titulo" value="{{ current_name }}" class="form-control" required>
+          </div>
+
+          <div class="form-group">
+            <label for="resenha">Resenha:</label>
+            <textarea id="resenha" name="resenha" value="{{ current_name }}" class="form-control" rows="5" required></textarea>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+            <button type="submit" class="btn btn-primary">Adicionar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
 </div>

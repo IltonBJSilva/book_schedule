@@ -6,6 +6,7 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from plataforma.models import Book
 from django.core.mail import send_mail
+import pyttsx3
 
 
 
@@ -15,6 +16,20 @@ def logar(request):
 	if request.user.is_authenticated:
 		livros = Book.objects.all()
 		livros = Book.objects.filter(liusuario=request.user)
+		nome_usuario = request.user.username
+
+		if not request.session.get('usuario_logado', False):
+			print("d")
+			request.session['usuario_logado'] = True
+			texto = f"Usuário {nome_usuario} logado com sucesso"
+			engine = pyttsx3.init()
+			engine.setProperty('rate', 150)
+			engine.say(texto)
+			engine.runAndWait()
+
+
+
+
 		return render(request, 'plataforma.html',{'livros': livros})
 	else:
 		return render(request, ' account/login.html')

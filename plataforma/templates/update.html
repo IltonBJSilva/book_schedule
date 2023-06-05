@@ -7,19 +7,27 @@
 
 <!--Imprimir variavel -->
 
-
-<form action="{% url 'update' livros.id%}" method="POST">
-	{% csrf_token %}
-	<div class="form-group" align="center">
-		<label for="titulo">Titulo do Livro:</label><br>
-		<input id="titulo" type="text" name="titulo" value="{{ livros.nome }}"><br><br>
-		<label for="resenha">Resenha:</label><br>
-		<textarea id="resenha" class="form-textarea validate[required] form-validation-error" name="resenha" cols="31"
-				  rows="13" data-component="textarea" required="" aria-labelledby="label_5" value="">{{ livros.resenha }}</textarea><br>
-		<button type="submit" class="btn btn-success">Atualizar</button>
+<div class="d-flex justify-content-center align-items-center">
 	
-	</div>
-</form>
+	<form action="{% url 'update' livros.id %}" method="POST" class="text-center">
+	  {% csrf_token %}
+	  <div class="form-group">
+		<label for="titulo">Título do Livro:</label>
+		<input id="titulo" type="text" name="titulo" value="{{ livros.nome }}" class="form-control mx-auto" style="background-color: #f8f9fa; border-color: #ced4da;">
+	  </div>
+	  <div class="form-group">
+		<label for="resenha">Resenha:</label>
+		<textarea id="resenha" class="form-control mx-auto" name="resenha" rows="5" style="background-color: #f8f9fa; border-color: #ced4da;">{{ livros.resenha }}</textarea>
+	  </div>
+	  <a class="btn btn-danger" href="/libook/home/">Voltar</a>
+	  <button type="submit" class="btn btn-success" style="background-color: #28a745; border-color: #28a745;">Atualizar</button>
+
+	</form>
+
+  </div>
+
+  
+  
 
 
 {% endblock %}

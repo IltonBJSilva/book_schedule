@@ -7,6 +7,18 @@
     {% block extra_head %}
     {% endblock %}
   </head>
+
+  {% block styles %}
+  <style>
+    body {
+      background-image: url('fundo.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+  </style>
+  {% endblock %}
+
+
   <body>
     {% if messages %}
     <div>

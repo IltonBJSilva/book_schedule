@@ -7,8 +7,12 @@
 Libook
 {% endblock %}
 
+
+
+
 {% block whitebox %}
-<h1 class="mb-5 text-3xl text-center">Libook</h1>
+<h1 class="mb-5 text-3xl text-center font-weight-bold text-primary">Libook</h1>
+
 <form method="POST" action="{% url 'account_login' %}" class="flex flex-col items-center grow-0">
   {% csrf_token %}
 
